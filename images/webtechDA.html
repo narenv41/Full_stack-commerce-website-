@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Shop</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom right, #7F00FF, #E100FF);
+        color: #fff;
+        overflow-x: hidden; /* Hide horizontal scrollbar */
+    }
+
+    .course-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly; /* Align courses evenly */
+        max-width: 800px; /* Set maximum width */
+        margin: 20px auto; /* Center the container */
+    }
+
+    .course {
+        margin: 20px;
+        padding: 20px;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.1);
+        text-align: center;
+        width: calc(50% - 40px); /* Set width for each course */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+
+    .course img {
+        width: 100%;
+        height: auto; /* Maintain aspect ratio */
+        max-height: 200px; /* Limit maximum height */
+        object-fit: cover; /* Ensure images cover the entire space */
+        border-radius: 10px;
+    }
+
+    .course h3 {
+        margin-top: 10px;
+        font-size: 1.5em;
+    }
+
+    .buy-btn, .close-btn {
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #fff; /* Same color as before */
+        color: #7F00FF; /* Same color as before */
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .buy-btn:hover, .close-btn:hover {
+        background-color: #E100FF; /* Same color as before */
+        color: #fff; /* Same color as before */
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .purchase-confirmation {
+        position: fixed;
+        bottom: 280px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        color: #000; /* Change font color to black */
+    }
+
+    .purchase-confirmation.hidden {
+        display: none;
+    }
+</style>
+</head>
+<body>
+<div class="course-container">
+  <div class="course">
+    <img src="https://img.freepik.com/free-vector/online-tutorials-concept_52683-37480.jpg?size=626&ext=jpg&ga=GA1.1.735520172.1711411200&semt=ais" alt="Course 1">
+    <h3>Course 1</h3>
+    <button class="buy-btn" onclick="buyCourse(1)">Buy</button>
+  </div>
+  <div class="course">
+    <img src="https://img.freepik.com/free-vector/female-student-listening-webinar-online_74855-6461.jpg" alt="Course 2">
+    <h3>Course 2</h3>
+    <button class="buy-btn" onclick="buyCourse(2)">Buy</button>
+  </div>
+  <div class="course">
+    <img src="https://blogassets.leverageedu.com/blog/wp-content/uploads/2019/10/23170101/List-of-Professional-Courses-after-Graduation.gif" alt="Course 3">
+    <h3>Course 3</h3>
+    <button class="buy-btn" onclick="buyCourse(3)">Buy</button>
+  </div>
+  <div class="course">
+    <img src="https://wealthcreator.co.in/wp-content/uploads/2022/12/Free-Online-Courses-with-Certificates.jpg" alt="Course 4">
+    <h3>Course 4</h3>
+    <button class="buy-btn" onclick="buyCourse(4)">Buy</button>
+  </div>
+</div>
+
+<div id="purchaseConfirmation" class="purchase-confirmation hidden">
+  <h2>Purchase Confirmation</h2>
+  <p>Thank you for purchasing the course!</p>
+  <button class="close-btn" onclick="closePopup('purchaseConfirmation')">Close</button>
+</div>
+
+<script>
+function buyCourse(courseId) {
+  // Perform purchase logic here
+  // Show purchase confirmation
+  document.getElementById("purchaseConfirmation").classList.remove("hidden");
+}
+
+function closePopup(popupId) {
+  // Close the specified popup
+  document.getElementById(popupId).classList.add("hidden");
+}
+</script>
+</body>
+</html>
